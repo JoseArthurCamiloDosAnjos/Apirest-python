@@ -20,3 +20,7 @@ Vamos ultilizar a biblioteca `Venv`, para criar o ambiente utilizr o comando aba
 `pip freeze`
 
 `pip freeze > requirements.txt`
+
+# Para Baixar a lista de requerimentos
+
+`pip install -r requirements.txt`

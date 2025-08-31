@@ -1,19 +1,27 @@
-CREATE DATABASE AGENDAAI;
+REATE DATABASE agendai ;
 
-USE AGENDAAI;
+USE agendai;
 
--- CREATE TABLE (
- --   CONSTRAINT pk_Tabela_campo PRIMARY KEY(id),
- --   CONSTRAINT fk_Tabela_Tabela_FK_ID FOREIGN KEY(id) REFERENCES [nome_tabela](id_tabela_fk)
---)
+--CREATE TABLE (
+--    atri tipo tam null def auto_increment,
+--    CONSTRAINT pk_TABELA_CAMPO PRIMARY KEY (id),
+--    CONSTRAINT fk_TABELA_TABELA_FK_ID FOREING KEY (id) REFERENCES [nome_tabela_fk] (id_tabela_fk)
+--);
 
 CREATE TABLE users (
-    id INT NOT NULL IDENTITY(1,1),
-    email VARCHAR(60) NOT NULL UNIQUE,
-    senha VARCHAR(250) NOT NULL,
-    nome  VARCHAR(250) NOT NULL,
-    apelido VARCHAR(250) NOT NULL,
-    token VARCHAR(254) NULL,
+    id INT NOT NULL AUTO_INCREMENT,
+    login VARCHAR(60) NOT NULL UNIQUE,
+    password VARCHAR(250) NOT NULL,
     active BIT DEFAULT(1),
-    CONSTRAINT PK_users_id PRIMARY KEY(id)
+    CONSTRAINT pk_users_id PRIMARY KEY (id)
+);
+
+CREATE TABLE contacts (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(60) NOT NULL,
+    apelido VARCHAR(30) NOT NULL,
+    email VARCHAR(250) NOT NULL,
+    telefone VARCHAR(15) NOT NULL,
+    active BIT DEFAULT(1),
+    CONSTRAINT pk_contacts_id PRIMARY KEY (id)
 );

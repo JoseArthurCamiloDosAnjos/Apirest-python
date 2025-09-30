@@ -1,4 +1,5 @@
 from flask import jsonify, request
+
 # agenda
 # Dados de exemplo (pode ser substituído por um banco de dados)
 listAgenda = [
@@ -8,12 +9,12 @@ listAgenda = [
 
 # Rota para obter todos 
 #@app.route('/agenda', methods=['GET'])
-def get():
+def get():    
     return jsonify(listAgenda)
 
 # Rota para obter um item específico por ID
 #@app.route('/agenda/<int:item_id>', methods=['GET'])
-def get(item_id):
+def getBy(item_id):
     item = next((item for item in listAgenda if item['id'] == item_id), None)
     if item:
         return jsonify(item)
@@ -21,7 +22,7 @@ def get(item_id):
 
 # Rota para adicionar um novo item
 #@app.route('/agenda', methods=['POST'])
-def add():
+def post():
     new_item = request.json
     if not new_item or 'nome' not in new_item:
         return jsonify({"message": "Dados inválidos"}), 400
@@ -33,7 +34,7 @@ def add():
 
 # Rota para atualizar um item existente
 #@app.route('/agenda/<int:item_id>', methods=['PUT'])
-def update(item_id):
+def put(item_id):
     item_data = request.json
     item = next((item for item in listAgenda if item['id'] == item_id), None)
     if item:

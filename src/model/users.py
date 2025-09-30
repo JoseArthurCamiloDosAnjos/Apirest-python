@@ -15,7 +15,7 @@ def get():
 
 # Rota para obter um item específico por ID
 #@app.route('/users/<int:item_id>', methods=['GET'])
-def get(item_id):
+def getBy(item_id):
     item = next((item for item in listUsers if item['id'] == item_id), None)
     if item:
         return jsonify(item)
@@ -23,7 +23,7 @@ def get(item_id):
 
 # Rota para adicionar um novo item
 #@app.route('/users', methods=['POST'])
-def add():
+def post():
     new_item = request.json
     if not new_item or 'login' not in new_item:
         return jsonify({"message": "Dados inválidos"}), 400
@@ -35,7 +35,7 @@ def add():
 
 # Rota para atualizar um item existente
 #@app.route('/users/<int:item_id>', methods=['PUT'])
-def update(item_id):
+def put(item_id):
     item_data = request.json
     item = next((item for item in listUsers if item['id'] == item_id), None)
     if item:

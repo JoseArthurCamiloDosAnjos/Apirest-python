@@ -8,7 +8,7 @@ def testar_conexao():
         conn = mysql.connector.connect(
             host='localhost',
             user='root',
-            password=''
+            password='mariadbrootPW'
         )
 
         # Se a conexão com o servidor for bem-sucedida
